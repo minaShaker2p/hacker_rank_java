@@ -2,27 +2,30 @@ package com.rezkalla;
 
 import java.util.HashMap;
 
+// How to compare two hash maps
+// https://www.baeldung.com/java-compare-hashmaps
 public class JavaAnagram {
     static boolean isAnagram(String a, String b) {
-        HashMap<Character, Integer> first = new HashMap<>();
-        HashMap<Character, Integer> second = new HashMap<>();
+        HashMap<Character, Integer> first;
+        HashMap<Character, Integer> second;
 
-        for (int i = 0; i < a.length(); i++) {
-            if (first.containsKey(a.charAt(i))) {
-                int val = first.get(a.charAt(i)) + 1;
-                first.put(Character.toLowerCase(a.charAt(i)), val);
-            } else {
-                first.put(Character.toLowerCase(a.charAt(i)), 1);
-            }
-        }
-        for (int i = 0; i < b.length(); i++) {
-            if (second.containsKey(b.charAt(i))) {
-                int val = second.get(b.charAt(i)) + 1;
-                second.put(Character.toLowerCase(b.charAt(i)), val);
-            } else {
-                second.put(Character.toLowerCase(b.charAt(i)), 1);
-            }
-        }
+        first = fillMap(a);
+        second = fillMap(b);
+
         return first.equals(second);
+    }
+
+    static HashMap<Character, Integer> fillMap(String word) {
+        HashMap<Character, Integer> result = new HashMap<>();
+
+        for (int i = 0; i < word.length(); i++) {
+            if (result.containsKey(word.charAt(i))) {
+                int val = result.get(word.charAt(i)) + 1;
+                result.put(Character.toLowerCase(word.charAt(i)), val);
+            } else {
+                result.put(Character.toLowerCase(word.charAt(i)), 1);
+            }
+        }
+        return result;
     }
 }
