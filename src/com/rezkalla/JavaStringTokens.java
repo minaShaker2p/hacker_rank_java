@@ -3,7 +3,10 @@ package com.rezkalla;
 public class JavaStringTokens {
 
     public static String getNumberOfTokens(String s) {
-        String[] tokens = s.split("[? ._!,'@]+");
+        if (s.trim().isEmpty()) {
+            return "0";
+        }
+        String[] tokens = s.trim().split("[? ._!,'@]+");
         StringBuilder builder = new StringBuilder();
         System.out.println(tokens.length);
         builder.append(tokens.length);

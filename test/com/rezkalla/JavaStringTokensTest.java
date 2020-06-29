@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JavaStringTokensTest {
 
-
     @Test
     @DisplayName("Sample Test Case 1")
     public void testStringTokensWorkSuccessfullyTestCase1() {
@@ -55,5 +54,13 @@ class JavaStringTokensTest {
                 "day";
         String actual = JavaStringTokens.getNumberOfTokens(str);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testEmptyStringShouldReturnZero()
+    {
+     String expected ="0";
+     String actual= JavaStringTokens.getNumberOfTokens("");
+     assertEquals(expected,actual);
     }
 }
