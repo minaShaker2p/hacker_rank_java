@@ -57,6 +57,7 @@ class JavaStringTokensTest {
     }
 
     @Test
+    @DisplayName("simple test case for empty string  should return 0")
     public void testEmptyStringShouldReturnZero()
     {
      String expected ="0";
