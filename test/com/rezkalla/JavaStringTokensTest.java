@@ -58,10 +58,18 @@ class JavaStringTokensTest {
 
     @Test
     @DisplayName("simple test case for empty string  should return 0")
-    public void testEmptyStringShouldReturnZero()
-    {
-     String expected ="0";
-     String actual= JavaStringTokens.getNumberOfTokens("");
-     assertEquals(expected,actual);
+    public void testEmptyStringShouldReturnZero() {
+        String expected = "0";
+        String actual = JavaStringTokens.getNumberOfTokens("");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testWrongStringShouldReturnInvalidResponse() {
+        String expected = "3\n" +
+                "Hello\n" +
+                "World\n";
+        String actual = JavaStringTokens.getNumberOfTokens("Hello World");
+        assertNotEquals(expected, actual);
     }
 }
